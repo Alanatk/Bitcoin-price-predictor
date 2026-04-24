@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bitcoin Price Prediction Dashboard powered by Machine Learning">
+    <title>Bitcoin Price Prediction</title>
+    <!-- Modern Google Fonts: Outfit for Headings, Inter for Body -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css?v=2">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>₿ Bitcoin Predictor</h1>
+            <p>Advanced Machine Learning Price Forecasting</p>
+        </header>
+
+        <main>
+            <div class="prediction-cards">
+                <div class="card current-price-card glass-panel">
+                    <div class="card-content" style="text-align: center; width: 100%;">
+                        <h2>Current Price</h2>
+                        <p id="current-price" class="price-value placeholder">Loading...</p>
+                        <p class="last-update">As of <span id="current-date">--</span></p>
+                    </div>
+                </div>
+
+                <div class="card predicted-price-card glass-panel">
+                    <div class="card-content" style="text-align: center; width: 100%;">
+                        <h2>Next Day Prediction</h2>
+                        <p id="predicted-price" class="price-value placeholder">Loading...</p>
+                        <p class="trend-indicator"><span id="trend-icon">--</span> <span id="trend-value">--</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-graphs">
+                <div class="mini-graph-card glass-panel">
+                    <h3>Today Price Trend</h3>
+                    <div class="mini-chart-container">
+                        <canvas id="todayChart"></canvas>
+                    </div>
+                </div>
+                <div class="mini-graph-card glass-panel">
+                    <h3>Tomorrow Forecast</h3>
+                    <div class="mini-chart-container">
+                        <canvas id="tomorrowChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-section glass-panel">
+                <h2>Price Forecast</h2>
+                <p class="chart-subtitle">On the chart, forecast prices are marked with a broken gray line.</p>
+                <div class="main-chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="action-section">
+                <button id="train-btn" class="primary-btn">
+                    <span class="btn-text">Retrain Model</span>
+                    <span class="btn-loader hidden"></span>
+                </button>
+                <div id="train-status" class="status-msg hidden"></div>
+            </div>
+
+            <!-- New About Bitcoin Section -->
+            <div class="info-section glass-panel">
+                <h2>Understanding Bitcoin</h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">🌐</div>
+                        <h3>Decentralized Network</h3>
+                        <p>Bitcoin operates on a peer-to-peer network without a central authority. All transactions are verified by network nodes through cryptography and recorded on a public blockchain.</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📊</div>
+                        <h3>Market Volatility</h3>
+                        <p>As the first cryptocurrency, Bitcoin's price is highly dynamic. It's influenced by global adoption, macroeconomic trends, regulatory news, and overall market sentiment.</p>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🤖</div>
+                        <h3>Machine Learning</h3>
+                        <p>Our model analyzes thousands of historical data points, detecting complex patterns and technical indicators to provide a data-driven forecast for future price movements.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Bitcoin Predictor. For educational and research purposes only. Not financial advice.</p>
+        </footer>
+    </div>
+    
+    <!-- Background Elements -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
